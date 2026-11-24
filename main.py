@@ -9,3 +9,6 @@ new_sold = win_credit + credit
 
 print("=== PROFIL TENNO ===")
 print(f"Opérateur : {pseudo} | Rang de maitrise : {rm} | Warframe équipé : {warframe} | Arme principal : {arme} | credit actuelle : {credit} | Platines : {platines} | Nouveau solde de credits : {new_sold}")
+
+
+

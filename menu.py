@@ -1,4 +1,4 @@
-def menu(): 
+def menu():
     while True():
         print("=== TENNO COMPANION ===")
         print("1. Consulter mon profil")
@@ -6,4 +6,4 @@ def menu():
         print("3. Ajouter des credits")
         print("4. Dépenser des crédits")
         print("5. Quitter")
-        print("Votre choix : ")
+        choose = input("Votre choix : ")

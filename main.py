@@ -25,24 +25,19 @@ def menu():
         print("=== Ajouter  des credits ===")
         add_credit = int(input("Saisir credits à ajouter : "))
         if not add_credit <= 0:
-            return credits == credits + add_credit, print("Nouveau solde : ", credits)
-        else:
-            return print("Les crédits ajouter doivent étre positif et supérieur a 0")
+            return credits + add_credit
 
     def action_four():
         print("=== Dépenser des credits")
         spend_credit = int(input("Combien de credits voulez vous dépenser : "))
         if not spend_credit > credits:
-            return credits == credits - spend_credit, print(
-                "Credit restant : ", credits
-            )
-        else:
-            return print("Fond insufisant")
+            return credits - spend_credit
 
     def stop_script():
         sys.exit("Arrêt du programme.")
 
     while True:
+
         print("=== TENNO COMPANION ===")
         print("1. Consulter mon profil")
         print("2. Consulter mes crédits")
@@ -56,7 +51,7 @@ def menu():
         if choose == 2:
             action_two()
         if choose == 3:
-            action_tree()
+            credits = action_tree()
         if choose == 4:
             action_four()
         if choose == 5:

@@ -26,12 +26,16 @@ def menu():
         add_credit = int(input("Saisir credits à ajouter : "))
         if not add_credit <= 0:
             return credits + add_credit
+        else:
+            return credits
 
     def action_four():
         print("=== Dépenser des credits")
         spend_credit = int(input("Combien de credits voulez vous dépenser : "))
         if not spend_credit > credits:
             return credits - spend_credit
+        else:
+            return credits
 
     def stop_script():
         sys.exit("Arrêt du programme.")
@@ -53,7 +57,9 @@ def menu():
         if choose == 3:
             credits = action_tree()
         if choose == 4:
-            action_four()
+            credits = action_four()
+            if credits <= 10000:
+                print("Warning : solde inferieur a 10 000")
         if choose == 5:
             stop_script()
 

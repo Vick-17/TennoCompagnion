@@ -35,39 +35,11 @@ def fonderie_test():
                 return choose_weapon
 
     def is_buildable(weapon_name):
-        for weapon_bp, request_resources in shemas.items():
-            if weapon_name == weapon_bp:
-                for (
-                    request_resources_name,
-                    request_resources_needed,
-                ) in request_resources.items():
-                    for (
-                        ressourses_available_name,
-                        ressourses_available_nbr,
-                    ) in ressourses.items():
-                        if (
-                            request_resources_name == ressourses_available_name
-                            and ressourses_available_nbr >= request_resources_needed
-                        ):
-                            print(
-                                "Stock: ",
-                                ressourses_available_name,
-                                ressourses_available_nbr,
-                                "Need: ",
-                                request_resources_name,
-                                request_resources_needed,
-                            )
-                            continue
-                        else:
-                            print(
-                                "Need: ",
-                                request_resources_name,
-                                request_resources_needed,
-                                "Available: ",
-                                ressourses_available_name,
-                                ressourses_available_nbr,
-                            )
-                            break
+        if weapon_name in shemas:
+            weapon_bp = shemas.get(weapon_name, {})
+            resources_needed = weapon_bp.keys() & ressourses.keys()
+            resources_available = ressourses.get(resources_needed)
+            print(resources_available)
 
     def show_ressourc():
         for ressourses_name, infos in ressourses.items():

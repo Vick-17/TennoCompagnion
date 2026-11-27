@@ -38,8 +38,14 @@ def fonderie_test():
         if weapon_name in shemas:
             weapon_bp = shemas.get(weapon_name, {})
             resources_needed = weapon_bp.keys() & ressourses.keys()
-            resources_available = ressourses.get(resources_needed)
-            print(resources_available)
+            for cle in resources_needed:
+                resourse_availble = ressourses.get(cle)
+                for cle in weapon_bp:
+                    resources_nbr_need = weapon_bp.get(cle)
+                    if resourse_availble >= resources_nbr_need:
+                        print("craft")
+                    else:
+                        print("pas craft")
 
     def show_ressourc():
         for ressourses_name, infos in ressourses.items():
